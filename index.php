@@ -1,17 +1,7 @@
 <?php
     session_start();
 ?>
-<?php
-    if (isset($_POST["login"])){
-        if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-            $_SESSION["username"] = $_POST["username"];
-            header("Location: home.php");
-        }
-        else {
-            echo "Missing username/password";
-        }
-    }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,13 +11,27 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="index.php" method="post">
+    <form action="login.php" method="post">
         Username: <input type="text" name="username">
         <br>
         Password: <input type="password" name="password">
         <br>
         <input type="submit" name ="login" value="Log in">
     </form>
+
+<p>
+    Session ID:
+<?php
+    if ($_SESSION["loggedIn"] == true){
+        echo session_id();
+        echo "<br>";
+        echo "<a href=\"logout.php\">Log out</a>";
+    }
+    else {
+        echo "Not logged in";
+    }
+?>
+</p>
 </body>
 </html>
   
