@@ -1,22 +1,10 @@
+<p>
+    You are now officially loggged in as: <?php echo $_SESSION["username"]; ?>
+    <br>
+    Password used: <?php echo $_SESSION["password"]; ?>
+    <br>
 <?php
-    session_start();
+    echo "Your session id is: " . session_id() . "<br>";
+    echo "<a href=\"logout.php\">Log out</a>";
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Home</title>
-</head>
-<body>
-    <p>
-<?php
-    echo "Logged in as: " . $_SESSION["username"];
-    echo "<br>";
-?>
-<a href="logout.php">TEST</a>
-    </p>
-</body>
-</html>
+</p>

@@ -4,31 +4,25 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Login</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Login</title>
+    </head>
 <body>
-    <form action="login.php" method="post">
-        Username: <input type="text" name="username">
-        <br>
-        Password: <input type="password" name="password">
-        <br>
-        <input type="submit" name ="login" value="Log in">
-    </form>
-
 <p>
-    Session ID:
+Session ID:
 <?php
     if ($_SESSION["loggedIn"] == true){
-        echo session_id();
-        echo "<br>";
-        echo "<a href=\"logout.php\">Log out</a>";
+        include ("home.php");
     }
     else {
-        echo "Not logged in";
+        echo "<form action=\"login.php\" method=\"post\">";
+        echo "Username: <input type=\"text\" name=\"username\"> <br>";
+        echo "Password: <input type=\"password\" name=\"password\"> <br>";
+        echo "<input type=\"submit\" name =\"login\" value=\"Log in\">";
+        echo "</form>";
     }
 ?>
 </p>
